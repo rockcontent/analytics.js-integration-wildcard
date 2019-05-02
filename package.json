@@ -1,0 +1,40 @@
+{
+  "name": "analytics.js-integration-wildcard",
+  "version": "1.0.0",
+  "description": "Analytics.js integration to send raw data to an endpoint.",
+  "main": "lib/index.js",
+  "repository": "git@github.com:rockcontent/analytics.js-integration-wildcard.git",
+  "author": "Kelvne M. Pechim <kelvne.pechim@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@segment/analytics.js-core": "^3.8.2",
+    "@segment/analytics.js-integration-tester": "^3.1.1",
+    "@segment/clear-env": "^2.1.1",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.7",
+    "@types/sinon": "^7.0.11",
+    "jest": "^24.7.1",
+    "sinon": "^7.3.2",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.4.3",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && webpack",
+    "postinstall": "cp ./fix/component-querystring-index.js ./node_modules/component-querystring/index.js",
+    "prepare": "npm run test && npm run build",
+    "test": "jest --config jestconfig.json"
+  },
+  "dependencies": {
+    "@ndhoule/keys": "^2.0.0",
+    "@segment/analytics.js-integration": "^2.1.1",
+    "@segment/localstorage-retry": "^1.2.2",
+    "@segment/send-json": "^4.0.1",
+    "@segment/utm-params": "^2.0.0"
+  }
+}
