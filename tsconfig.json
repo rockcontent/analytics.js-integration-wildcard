@@ -3,7 +3,7 @@
     "outDir": "./lib",
     "lib": ["dom", "es5"],
     "target": "es5",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "strictNullChecks": true,
