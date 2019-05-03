@@ -1,6 +1,6 @@
 {
   "name": "analytics.js-integration-wildcard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analytics.js integration to send raw data to an endpoint.",
   "main": "lib/index.js",
   "repository": "git@github.com:rockcontent/analytics.js-integration-wildcard.git",
@@ -26,9 +26,9 @@
   "scripts": {
     "clean": "rm -rf ./lib",
     "build": "npm run clean && webpack",
-    "postinstall": "cp ./fix/component-querystring-index.js ./node_modules/component-querystring/index.js",
+    "postinstall-local": "cp ./fix/component-querystring-index.js ./node_modules/component-querystring/index.js",
     "prepare": "npm run test && npm run build",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
   },
   "dependencies": {
     "@ndhoule/keys": "^2.0.0",
