@@ -3,3 +3,4 @@
 *.log
 /__tests__
 jestconfig.json
+!/lib
