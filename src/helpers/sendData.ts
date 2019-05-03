@@ -12,6 +12,7 @@ const sendData = (
   // If cors is disabled use @segment/send-json
   if (send.type !== 'xhr') {
     send(url, body, headers, callback);
+    return;
   }
 
   const request = new XMLHttpRequest();
