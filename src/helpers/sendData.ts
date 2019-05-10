@@ -7,6 +7,7 @@ const sendData = (
   body: any,
   headers: any,
   timeout: number,
+  withCredentials: boolean = false,
   callback: Callback,
 ) => {
   // If cors is disabled use @segment/send-json
@@ -16,6 +17,7 @@ const sendData = (
   }
 
   const request = new XMLHttpRequest();
+  request.withCredentials = withCredentials;
   request.onerror = callback;
   request.onreadystatechange = () => {
     if (request.readyState === 4) {

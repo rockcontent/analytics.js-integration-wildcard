@@ -12,6 +12,7 @@ const MAX_SIZE = 32000;
 const Wildcard = integration('Wildcard')
   .option('name', '')
   .option('endpoint', '')
+  .option('credentials', false)
   .option('maxPayloadSize', MAX_SIZE);
 
 const queueOptions = {
@@ -30,7 +31,7 @@ Wildcard.prototype.initialize = function() {
   this.queue = new Queue(this.options.name || 'analytics', queueOptions, (item: any, done: Callback) => {
     item.msg.sentAt = new Date();
 
-    sendData(item.url, item.msg, item.headers, 10000, (error, response) => {
+    sendData(item.url, item.msg, item.headers, 10000, this.options.credentials, (error, response) => {
       self.debug('sent %O, received %O', item.msg, [error, response]);
       if (error) { return done(error); }
       return done(null, response);
